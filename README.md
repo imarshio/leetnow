@@ -125,6 +125,91 @@ public class Test002 {
 }
 ```
 
+### 2024-07-08 字符串最后一个单词的长度
+
+简单说下思路，很简单的一道题，主要考察Java基础知识的应用。
+
+[字符串最后一个单词的长度](https://www.nowcoder.com/practice/8c949ea5f36f422594b306a2300315da?tpId=37&tqId=21224&rp=1&ru=/exam/oj/ta&qru=/exam/oj/ta&sourceUrl=%2Fexam%2Foj%2Fta%3FtpId%3D37&difficulty=undefined&judgeStatus=undefined&tags=&title=)
+
+#### 亮点
+
+- Scanner。
+- 时间复杂度为 O(1)
+- 空间复杂度为 O(1)
+
+
+#### 实现
+
+```java
+public class Test003 {
+    /**
+     * 计算字符串最后一个单词的长度，单词以空格隔开，字符串长度小于5000。（注：字符串末尾不以空格为结尾）
+     * 输入：hello now coder
+     * 输出：5
+     *
+     * @param args 输入一行，代表要计算的字符串，非空，长度小于5000。
+     */
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String input = in.nextLine();
+        if (!input.contains(" ")) {
+            System.out.println(input.length());
+            return;
+        }
+        String[] split = input.split(" ");
+        System.out.println(split[split.length - 1].length());
+    }
+}
+```
+
+### 2024-07-08 计算某字符出现次数
+
+简单说下思路，很简单的一道题，主要考察Java基础知识的应用。
+
+[计算某字符出现次数](https://www.nowcoder.com/practice/a35ce98431874e3a820dbe4b2d0508b1?tpId=37&rp=1&ru=%2Fexam%2Foj%2Fta&qru=%2Fexam%2Foj%2Fta&sourceUrl=%2Fexam%2Foj%2Fta%3FtpId%3D37&difficulty=&judgeStatus=&tags=&title=&gioEnter=menu)
+
+#### 亮点
+
+- char
+- 分情况判断
+- 时间复杂度为 O(1)
+- 空间复杂度为 O(1)
+
+
+#### 实现
+
+```java
+public class Test004 {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        // 注意 hasNext 和 hasNextLine 的区别
+        String input1 = in.nextLine();
+        String input2 = in.nextLine();
+        int count = 0;
+        // System.out.print((int)' ');
+        for (int i = 0; i < input1.length(); i++) {
+            if (input2.charAt(0) == input1.charAt(i)) {
+                count++;
+                continue;
+            }
+            if (input2.charAt(0) == ' ') {
+                continue;
+            }
+            if (input2.charAt(0) >= '1' && input2.charAt(0) <= '9') {
+                continue;
+            }
+            // 字母的情况
+            if (Math.abs((int)input2.charAt(0) - (int)input1.charAt(i)) == 32) {
+                count++;
+            }
+        }
+        System.out.print(count);
+    }
+
+}
+```
+
 ## leetcode
 
 ## 剑指offer
