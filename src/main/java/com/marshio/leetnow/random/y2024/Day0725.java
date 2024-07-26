@@ -16,18 +16,22 @@ public class Day0725 {
     // [5,2,3,1] ==> [1,2,3,5]
 
     // 您必须在不使用任何内置函数的情况下以 O(nlog(n)) 时间复杂度和尽可能最小的空间复杂度解决问题。
-    public int[] sortArray(int[] nums) {
-        int size = nums.length;
+    public int[] quickSort(int[] nums, int start, int end) {
+        // 选择基准值
+        int pivot = nums[start];
+        nums[]
+        while (start < end) {
+            if (nums[start]) {
 
-        for (int i = size - 1; i >= 0; i--) {
-            for (int j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    int temp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = temp;
-                }
             }
         }
+        return nums;
+    }
+
+    public int[] sortArray(int[] nums) {
+        int size = nums.length;
+        // 使用快排
+        quickSort(nums, 0, size - 1);
         return nums;
     }
 
