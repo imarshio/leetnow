@@ -16,17 +16,43 @@ public class Day0725 {
     // [5,2,3,1] ==> [1,2,3,5]
 
     // 您必须在不使用任何内置函数的情况下以 O(nlog(n)) 时间复杂度和尽可能最小的空间复杂度解决问题。
-    public int[] quickSort(int[] nums, int start, int end) {
-        // 选择基准值
-        int pivot = nums[start];
-        nums[]
-        while (start < end) {
-            if (nums[start]) {
 
+    private int doublePointerSwap(int[] nums, int start, int end) {
+        int pivot = nums[start];
+        int left = start;
+        int right = end;
+        while (left < right) {
+            // 选左侧为基准值就需要从右侧开始
+            while (left < right && nums[right] > pivot) {
+                right--;
+            }
+            while (left < right && nums[left] <= pivot) {
+                left++;
+            }
+            // 没过界就交换
+            if (left < right) {
+                // swap
+                int temp = nums[left];
+                nums[left] = nums[right];
+                nums[right] = temp;
             }
         }
-        return nums;
+        nums[start] = nums[right];
+        nums[right] = pivot;
+        return right;
     }
+
+    public void quickSort(int[] nums, int start, int end) {
+        if (start >= end) {
+            return;
+        }
+        // 选择基准值,这里我们选择左侧为基准值
+        int index = doublePointerSwap(nums, start, end);
+
+        quickSort(nums, start, index - 1);
+        quickSort(nums, index + 1, end);
+    }
+
 
     public int[] sortArray(int[] nums) {
         int size = nums.length;
@@ -36,6 +62,7 @@ public class Day0725 {
     }
 
     public static void main(String[] args) {
+        System.out.println(Arrays.toString(new Day0725().sortArray(new int[]{110, 100, 0})));
         System.out.println(Arrays.toString(new Day0725().sortArray(new int[]{5, 7, 4, 3, 6, 2})));
     }
 }
