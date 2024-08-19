@@ -11,7 +11,6 @@ public class Day0802 {
 
     public static void main(String[] args) {
         // System.out.println(Arrays.toString(new Day0725().sortArray(new int[]{110, 100})));
-
         // System.out.println(new Day0802().minSwaps(new int[]{1, 1, 0, 0, 0, 0, 1}));
         System.out.println(new Day0802().minSwaps(new int[]{0, 1, 0, 1, 1, 0, 0}));
     }

@@ -11,7 +11,7 @@ public class Test002 {
         ListNode head = new ListNode(1);
         head.next = new ListNode(2);
         head.next.next = new ListNode(3);
-        System.out.println(new Test002().ReverseList(head));
+        System.out.println(new Test002().reverseList(head));
     }
 
     public static class ListNode {
@@ -30,7 +30,7 @@ public class Test002 {
      * @param head ListNode类 长度大于等于0
      * @return ListNode类
      */
-    public ListNode ReverseList(ListNode head) {
+    public ListNode reverseList(ListNode head) {
         // 递归 recursion
         if (null == head) {
             return null;
